@@ -1,0 +1,102 @@
+<div>
+  <!-- right part -->
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <table class="full-width">
+        <tr>
+          <th class="long-width">Tweet Content</th>
+          <th class="short-width">Annotation</th>
+          <th class="short-width">Kappa Score</th>
+          <mat-menu #appMenu="matMenu" src="../../assets/icon.png">
+            <button mat-menu-item (click)="sortScoreDesc()">
+              Score⬆
+            </button>
+            <button mat-menu-item (click)="sortScoreAsc()">Score⬇</button>
+            <button mat-menu-item (click)="sortIDAsc()">ID⬇</button>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>
+              swap_vert
+            </mat-icon>
+          </button>
+        </tr>
+      </table>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-accordion>
+    <mat-expansion-panel class="margin-mid" *ngFor="let item of detail">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <table class="full-width">
+            <tr>
+              <th class="long-width align-left">
+                {{ item.tweet | readLess }}
+              </th>
+              <th class="short-width align-center">
+                <span appHighlight [label]="item.annotation">
+                  {{ item.annotation | titlecase }}
+                </span>
+              </th>
+              <th class="short-width align-center">{{ item.score }}</th>
+            </tr>
+          </table>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-panel-description class="panel">
+        <table style="width: 100%;">
+          <tr>
+            <th width="60%" style="text-align: left;">
+              <strong>Tweet Content</strong>
+            </th>
+            <th width="10%">Vader</th>
+            <th width="10%">SentiwordNet</th>
+            <th width="10%">Textblob</th>
+            <th width="10%">stanfordNLP</th>
+          </tr>
+          <tr>
+            <th width="60%" style="text-align: left;">{{ item.full_tweet }}</th>
+            <th width="10%">
+              <span appHighlight [label]="item.vader.state">
+                {{ item.vader.state | titlecase }}
+              </span>
+            </th>
+            <th width="10%">
+              <span appHighlight [label]="item.sentiwordNet.state">
+                {{ item.sentiwordNet.state | titlecase }}
+              </span>
+            </th>
+            <th width="10%">
+              <span appHighlight [label]="item.Textblob.state">
+                {{ item.Textblob.state | titlecase }}
+              </span>
+            </th>
+            <th width="10%">
+              <span appHighlight [label]="item.stanfordNLP.state">
+                {{ item.stanfordNLP.state | titlecase }}
+              </span></th>
+          </tr>
+          <tr>
+            <th width="60%"></th>
+            <th width="10%">{{ item.vader.score }}</th>
+            <th width="10%">{{ item.vader.score }}</th>
+            <th width="10%">{{ item.vader.score }}</th>
+            <th width="10%">{{ item.vader.score }}</th>
+          </tr>
+          <tr>
+            <th width="60%" style="text-align: left;">
+              <strong>Sentence Content</strong>
+            </th>
+          </tr>
+        </table>
+      </mat-panel-description>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
