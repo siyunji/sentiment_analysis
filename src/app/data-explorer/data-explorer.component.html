@@ -1,0 +1,41 @@
+
+
+<div class="container content-container">
+  <br>
+      <mat-card class="margin-mid " >
+        <mat-card-title class =" title-unbold">
+          Annontation
+        </mat-card-title>
+        <mat-card-content>
+          <div class="annotation-conatiner">
+            <div style="font-size: 16px;">
+              {{ word_count }}
+            </div>
+            <br>
+            <div class="chart">
+              <div class="negative chart-percent" [style.width.%] = "negative">
+                {{ negative }}%
+              </div>
+              <div class="neutral chart-percent" [style.width.%] = "neutral">
+                {{ neutral }}%
+              </div>
+              <div class="positive chart-percent" [style.width.%] = "positive">
+                {{ positive }}%
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <br>
+      <mat-card class="margin-mid">
+        <mat-card-title class =" title-unbold">
+          Wordcloud
+        </mat-card-title>
+        <mat-card-content>
+          <img src="../../assets/big-data-wordcloud.jpg">
+        </mat-card-content>
+      </mat-card>
+
+
+
+</div>
