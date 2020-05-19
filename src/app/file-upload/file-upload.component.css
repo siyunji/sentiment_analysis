@@ -1,0 +1,43 @@
+.container {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+}
+
+mat-card {
+   background-color:#fff;
+   border-radius: 10px;
+   border: 1px solid#ddd;
+   padding: 60px 60px 0;
+   position: relative;
+   box-shadow: 0 10px 25px#ddd;
+   width: 528px;
+   height: 386px;
+   overflow: hidden;
+   margin-top: 20px;
+}
+
+.title {
+   text-align: center;
+   margin-top: 70px;
+}
+
+.choose-file-btn, .submit-btn {
+   width: 406px;
+   height: 44px;
+}
+
+.choose-file-btn {
+   height: 70px;
+}
+
+.input {
+   width: 406px;
+   height: 50px;
+   margin-bottom: 20px;
+}
+
+#first-input {
+   margin-top: 50px;
+}
