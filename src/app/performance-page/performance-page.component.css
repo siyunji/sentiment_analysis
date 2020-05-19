@@ -1,0 +1,21 @@
+
+
+/* table {
+  margin: auto;
+  margin-top: 50px;
+  width: 80%;
+  height: 400px;
+} */
+.highlight{
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+.mat-header-cell{
+  font-size: 14px;
+}
+td{
+  font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif; font-weight: normal;
+}
