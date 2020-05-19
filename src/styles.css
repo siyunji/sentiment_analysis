@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif; font-weight: normal;}
+
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.long-width {
+  width: 60%;
+}
+
+.short-width {
+  width: 20%;
+}
+.title-unbold{
+  font-weight: normal;
+}
+
+
+/* define a class for the side nav font */
+.side-nav-font {
+
+}
+
+.title {
+
+}
+
+.subtitle {
+
+}
+
+.card-title {
+
+}
+
+.card {
+
+}
+
+
+.content-container {
+  margin: auto;
+  margin-top: 50px;
+  width: 80%;
+  min-height: 400px;
+
+}
