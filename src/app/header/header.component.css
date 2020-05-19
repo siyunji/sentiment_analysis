@@ -1,0 +1,23 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+    height: 100%;
+ }
+
+ .signin-btn {
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 0.8em;
+ }
+ 
+ .signin-btn:link,
+ .signin-btn:visited,
+ .signin-btn:hover {
+    color: white;
+ }
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+ }
