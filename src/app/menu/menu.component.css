@@ -1,0 +1,49 @@
+.sidenav-container {
+  height: 100%;
+  font-size: 14px;
+}
+
+
+.sidenav {
+  width: 200px;
+
+}
+
+.sidenav .mat-toolbar {
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 14px;
+}
+.word{
+  font-size: 14px;
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-top: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.signin-btn {
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.signin-btn:link,
+.signin-btn:visited,
+.signin-btn:hover {
+  color: white;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.mat-list-base .mat-list-item {
+  font-size: 14px;
+}
