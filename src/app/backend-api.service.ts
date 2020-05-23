@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 })
 export class BackendApiService {
   data: any;
-  apiEndPoint = 'https://salt-node-api.herokuapp.com/requests/';
+  apiEndPoint = environment.urlendpoint;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -18,6 +18,7 @@ export class BackendApiService {
      return this.httpClient.get(serverurl);
   }
 
+  // TODO: check the file loading func
   public requests_post(file_name, request_name, user_email) {
     const serverurl = this.apiEndPoint;
     return this.httpClient
