@@ -57,3 +57,11 @@ body { margin: 0; font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans
   min-height: 400px;
 
 }
+
+mat-tab-group {
+  height: 100%;
+}
+
+.mat-tab-body-wrapper {
+  height: 100%;
+}
