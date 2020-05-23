@@ -1,3 +1,9 @@
 tab-style {
     position: fixed;
 }
+
+
+.tab-container {
+    height: 100%;
+    margin: 10px 0px;
+}
