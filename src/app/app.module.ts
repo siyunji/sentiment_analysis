@@ -33,6 +33,7 @@ import { MaxvalDirective } from './maxval.directive';
 
 import { BackendApiService } from './backend-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     RequestComponent,
     RequestDetailComponent,
-    MaxvalDirective
+    MaxvalDirective,
+    DatePipe
   ],
   imports: [
     BrowserModule,
