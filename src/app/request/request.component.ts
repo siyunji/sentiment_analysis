@@ -32,7 +32,7 @@ export interface Request {
 export class RequestComponent implements OnInit {
   api: any;
   requests: Request[];
-
+  state: boolean;
 
   dataSource:any;
   displayedColumns: string[] = ['name', 'id', 'user_email', 'init_time', 'mod_time', 'status', 'detail'];
@@ -41,14 +41,16 @@ export class RequestComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // TODO: how to show loading
-    // start the loading
+    let table = document.getElementById("dataTable");
+    let loader = document.getElementById("loader");
+    this.state = true;
+    //table.style.display = "none";
+    //loader.style.display = "block";
 
     this.api.requests_get().subscribe((value) => {
-
-      // stop the loading
-
+      this.state = false;
+      //loader.style.display = "none";
+      //table.style.display = "block";
 
       if (value['success']) {
         this.requests = value['requests'];
@@ -61,5 +63,9 @@ export class RequestComponent implements OnInit {
       }
     });
   }
+
+    format(){
+      
+    }
 
 }
