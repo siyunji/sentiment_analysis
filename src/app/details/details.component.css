@@ -6,10 +6,15 @@
   margin: auto;
   width: 80%;
 }
+.mat-toolbar{
+  background-color:#fafafa;
+}
+
 
 th {
   font-size: 14px;
   font-weight: normal;
+  padding: 6px;
 }
 .panel {
   color: black;

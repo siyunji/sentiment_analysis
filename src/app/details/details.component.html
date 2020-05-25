@@ -46,48 +46,58 @@
       </mat-expansion-panel-header>
 
       <mat-panel-description class="panel">
-        <table style="width: 100%;">
-          <tr>
-            <th width="60%" style="text-align: left;">
+        <table class="full-width">
+          <tr *ngIf="item.tweet.length !=0">
+            <th class="long-width align-left">
               <strong>Tweet Content</strong>
             </th>
-            <th width="10%">Vader</th>
-            <th width="10%">SentiwordNet</th>
-            <th width="10%">Textblob</th>
-            <th width="10%">stanfordNLP</th>
+            <th class="min-width align-center">Vader</th>
+            <th class="min-width align-center">Textblob</th>
+            <th class="min-width align-center">StanfordNLP</th>
           </tr>
           <tr>
-            <th width="60%" style="text-align: left;">{{ item.full_tweet }}</th>
-            <th width="10%">
-              <span appHighlight [label]="item.vader.state">
-                {{ item.vader.state | titlecase }}
+            <th class="long-width align-left">{{ item.tweet }}</th>
+            <th class="min-width align-center">
+              <span appHighlight [label]="item.vader">
+                {{ item.vader | titlecase }}
               </span>
             </th>
-            <th width="10%">
-              <span appHighlight [label]="item.sentiwordNet.state">
-                {{ item.sentiwordNet.state | titlecase }}
+            <th class="min-width align-center">
+              <span appHighlight [label]="item.textblob">
+                {{ item.textblob | titlecase }}
               </span>
             </th>
-            <th width="10%">
-              <span appHighlight [label]="item.Textblob.state">
-                {{ item.Textblob.state | titlecase }}
+            <th class="min-width align-center">
+              <span appHighlight [label]="item.stanfordNLP">
+                {{ item.stanfordNLP | titlecase }}
               </span>
             </th>
-            <th width="10%">
-              <span appHighlight [label]="item.stanfordNLP.state">
-                {{ item.stanfordNLP.state | titlecase }}
-              </span></th>
           </tr>
-          <tr>
-            <th width="60%"></th>
-            <th width="10%">{{ item.vader.score }}</th>
-            <th width="10%">{{ item.vader.score }}</th>
-            <th width="10%">{{ item.vader.score }}</th>
-            <th width="10%">{{ item.vader.score }}</th>
-          </tr>
-          <tr>
-            <th width="60%" style="text-align: left;">
+          <tr *ngIf="item.sentences.length !=0">
+            <th class="long-width align-left">
               <strong>Sentence Content</strong>
+            </th>
+            <!-- <th class="min-width align-center">Vader</th>
+            <th class="min-width align-center">Textblob</th>
+            <th class="min-width align-center">StanfordNLP</th> -->
+          </tr>
+
+          <tr *ngFor="let sentence of item.sentences">
+            <th class="long-width align-left">{{ sentence.tweet }}</th>
+            <th class="min-width align-center">
+              <span appHighlight [label]="sentence.vader">
+                {{ sentence.vader | titlecase }}
+              </span>
+            </th>
+            <th class="min-width align-center">
+              <span appHighlight [label]="sentence.textblob">
+                {{ sentence.textblob | titlecase }}
+              </span>
+            </th>
+            <th class="min-width align-center">
+              <span appHighlight [label]="sentence.stanfordNLP">
+                {{ sentence.stanfordNLP | titlecase }}
+              </span>
             </th>
           </tr>
         </table>

@@ -1,117 +1,59 @@
-import { Component, OnInit, OnDestroy,ViewChild  } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { BackendApiService } from '../backend-api.service';
+import { GlobalDataService } from '../global-data.service';
 
-export interface DummyDetails {
+export interface Details {
   tweet: string;
   annotation: string;
   score: number;
-  full_tweet: string;
-  vader: any;
-  sentiwordNet: any;
-  Textblob: any;
-  stanfordNLP: any;
-  id:number;
+  vader: string;
+  textblob: string;
+  stanfordNLP: string;
+  id: number;
+  sentences: Details[];
 }
-
-const DUMMY_DATA: DummyDetails[] = [
-  {
-    tweet:
-      "To increase #HPV vaccination rates, it is most effecitve to engage both the family and the children.",
-    annotation: "negative",
-    score: 0.43,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-    vader: { state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 1
-
-  },
-  {
-    tweet: "To increase #HPV vaccination rates",
-    annotation: "positive",
-    score: 0.23,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-      vader: {state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 2
-  },
-  {
-    tweet:
-      "To increase #HPV vaccination rates, it is most effecitve to engage both the family and the children.",
-    annotation: "negative",
-    score: 0.43,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-      vader: {state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 3
-  },
-  {
-    tweet: "To increase #HPV vaccination rates",
-    annotation: "positive",
-    score: 0.53,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-      vader: {state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 4
-  },
-  {
-    tweet:
-      "To increase #HPV vaccination rates, it is most effecitve to engage both the family and the children.",
-    annotation: "negative",
-    score: 0.37,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-      vader: {state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 5
-  },
-  {
-    tweet: "To increase #HPV vaccination rates",
-    annotation: "positive",
-    score: 0.32,
-    full_tweet:
-      " ' To increase #HPV vaccination rates, it is most effecitve to engage both the family and the chlinician.'This is so awfull",
-      vader: {state: "negative", score:0.33},
-    sentiwordNet: {state: "positive", score:0.33},
-    Textblob: {state: "neutral", score:0.33},
-    stanfordNLP: {state: "negative", score:0.33},
-    id: 6
-  }
-];
 
 @Component({
   selector: "app-details",
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.css"]
 })
-export class DetailsComponent implements OnInit, OnDestroy {
+export class DetailsComponent implements OnInit{
   panelOpenState = false;
-  detail = [];
+  detail: Details[] = [];
 
-  constructor() {
-    this.detail = DUMMY_DATA;
+  constructor(private backendApi: BackendApiService, private globalData: GlobalDataService) {
   }
 
   ngOnInit() {
-    console.log('details component oninit...');
-  }
-
-  ngOnDestroy() {
-    console.log('details component onDestroy...');
+    this.backendApi.send_request("tweets", this.globalData.req_id).subscribe(
+      (data) => {
+        if (data["success"]) {
+          let count = 0;
+          for (let item in data["tweets"]) {
+            if (count > 50) {
+              break;
+            }
+            count++;
+            let tweet: Details = {
+              tweet : String(data["tweets"][item]["tweet"]),
+              annotation : String(data["tweets"][item]["annotation"]),
+              score : data["tweets"][item]["kappa"],
+              vader : String(data["tweets"][item]["vader"]),
+              textblob : String(data["tweets"][item]["textblob"]),
+              stanfordNLP : String(data["tweets"][item]["Stanford"]),
+              id : data["tweets"][item]["id"],
+              sentences : data["tweets"][item]["sentences"]
+            };
+            console.log(tweet);
+            this.detail.push(tweet);
+          }
+        }
+      }
+    );
   }
 
   sortScoreDesc() {
