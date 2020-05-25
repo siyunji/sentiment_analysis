@@ -23,6 +23,10 @@ body { margin: 0; font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans
 .short-width {
   width: 20%;
 }
+
+.min-width{
+  width:10%;
+}
 .title-unbold{
   font-weight: normal;
 }
