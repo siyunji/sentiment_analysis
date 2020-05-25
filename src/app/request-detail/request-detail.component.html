@@ -1,13 +1,15 @@
 <div class="tab-container" fxLayout="column" fxLayoutAlign="start center">
-
   <mat-tab-group>
     <mat-tab label="Performance" routerLink="/performance">
+      <h3>Request Name: {{requestName}}</h3>
       <app-performance-page></app-performance-page>
     </mat-tab>
     <mat-tab label="Details" routerLink = "/details">
+      <h3>Request Name: {{requestName}}</h3>
       <app-details></app-details>
     </mat-tab>
     <mat-tab label="Data Explorer" routerLink = "/data-explorer">
+      <h3>Request Name: {{requestName}}</h3>
       <app-data-explorer></app-data-explorer>
     </mat-tab>
   </mat-tab-group>

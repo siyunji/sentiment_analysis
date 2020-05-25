@@ -5,4 +5,16 @@ tab-style {
 .tab-container {
     height: 100%;
     margin: 10px 0px;
+    z-index: 1;
+}
+
+mat-tab-group{
+    z-index: 1;
+}
+
+h3{
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+  
 }
