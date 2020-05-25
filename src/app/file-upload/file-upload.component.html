@@ -7,22 +7,22 @@
 </p>
 
 <div class="container">
-      <mat-card>
-        <input type="file" id="fileElem" accept=".txt" style="display:none">
-        <button mat-raised-button class="choose-file-btn" id="fileSelect">
-          <mat-icon inline=true style="float:left;">attach_file</mat-icon>
-          Choose File
-        </button>
-        <mat-form-field appearance="outline" class="input" id="first-input">
-          <mat-label>Email Address</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="input">
-          <mat-label>Project Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <button mat-raised-button color="primary" class="submit-btn" routerLink="/performance">
-          Submit
-        </button>
-      </mat-card>
+    <mat-card>
+      <input type="file" id="fileElem" accept=".txt" style="display:none">
+      <button mat-raised-button class="choose-file-btn" id="fileSelect">
+        <mat-icon inline=true style="float:left;">attach_file</mat-icon>
+        Choose File
+      </button>
+      <mat-form-field appearance="outline" class="input" id="email-input">
+        <mat-label>Email Address</mat-label>
+        <input matInput [(ngModel)]="user_email">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="input" id="project-input">
+        <mat-label>Project Name</mat-label>
+        <input matInput [(ngModel)]="project_name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="submit-btn" (click)="sendFile()">
+        Submit
+      </button>
+    </mat-card>
 </div>
