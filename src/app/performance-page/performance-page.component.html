@@ -48,6 +48,21 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="overall">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Overall</th>
+      <td
+        mat-cell
+        class="highlight"
+        *matCellDef="let element"
+
+      >
+      <span appMaxval [label] = "element.overall === overallMAX ">
+        {{ element.overall }}
+      </span>
+
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
