@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter  } from '@angular/core';
 import { Injectable } from "@angular/core";
 import { BackendApiService } from '../backend-api.service';
+import { GlobalDataService } from '../global-data.service';
 
 export interface Request {
   id: number;
@@ -10,16 +11,6 @@ export interface Request {
   requestStatus: string;
   userEmail: string;
 }
-
-// const REQUEST_DATA: Request[] = [
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" },
-//   { name: "REQUEST2", id: "REQUEST ID", file_name: "TEST FILE", date: "12 Sep 2019", status: "Fail" }
-// ];
 
 @Injectable({
   providedIn: "root",
@@ -31,12 +22,12 @@ export interface Request {
 })
 export class RequestComponent implements OnInit {
   api: any;
-  requests: Request[];
   state: boolean;
+  passedID: string;
 
-  dataSource:any;
+  dataSource: Request[];
   displayedColumns: string[] = ['name', 'id', 'user_email', 'init_time', 'mod_time', 'status', 'detail'];
-  constructor(backendApi : BackendApiService) {
+  constructor(private backendApi : BackendApiService, private globalData: GlobalDataService) {
     this.api = backendApi;
   }
 
@@ -44,18 +35,12 @@ export class RequestComponent implements OnInit {
     let table = document.getElementById("dataTable");
     let loader = document.getElementById("loader");
     this.state = true;
-    //table.style.display = "none";
-    //loader.style.display = "block";
 
     this.api.requests_get().subscribe((value) => {
       this.state = false;
-      //loader.style.display = "none";
-      //table.style.display = "block";
 
       if (value['success']) {
-        this.requests = value['requests'];
-        console.log(this.requests);
-        this.dataSource = this.requests;
+        this.dataSource = value['requests'];
       } else {
         // TODO: think how should we show the error
         // console.log
@@ -64,8 +49,8 @@ export class RequestComponent implements OnInit {
     });
   }
 
-    format(){
-      
-    }
-
+  getDetail(row) {
+    this.globalData.requestName = row["requestName"];
+    this.globalData.req_id = row["id"];
+  }
 }

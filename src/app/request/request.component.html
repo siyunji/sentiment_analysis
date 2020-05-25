@@ -2,7 +2,7 @@
   <div class="loader" id="loader"></div> 
 </div>
 
-<table class="mat-elevation-z2" *ngIf="state == false" mat-table [dataSource]="dataSource" routerLink="/request-detail" id="dataTable">
+<table class="mat-elevation-z2" *ngIf="state == false" mat-table [dataSource]="dataSource"  id="dataTable">
     <!-- Position Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Request Name </th>
@@ -45,8 +45,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click) ="getDetail(row)" routerLink="/request-detail" ngDefaultControl></tr>
   </table>
 
 
