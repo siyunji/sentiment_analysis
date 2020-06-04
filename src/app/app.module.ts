@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator'; 
 
 import { AppComponent } from './app.component';
@@ -73,6 +73,7 @@ import { DatePipe } from './pipes/date.pipe';
     MatListModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatPaginatorModule
   ],
   providers: [BackendApiService],
