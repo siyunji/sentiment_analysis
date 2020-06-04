@@ -3,7 +3,7 @@ tab-style {
 }
 
 .tab-container {
-    height: 100%;
+    height: 100% - 64px;
     margin: 10px 0px;
     z-index: 1;
 }

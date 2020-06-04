@@ -45,7 +45,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click) ="getDetail(row)" routerLink="/request-detail" ngDefaultControl></tr>
+    <tr class="eachrow" mat-row *matRowDef="let row; columns: displayedColumns;" (click) ="getDetail(row)" routerLink="/request-detail" ngDefaultControl></tr>
   </table>
 
 
