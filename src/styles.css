@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif; font-weight: normal;}
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif;
+  font-weight: normal;
+}
 
 .align-left {
   text-align: left;
@@ -24,42 +30,19 @@ body { margin: 0; font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans
   width: 20%;
 }
 
-.min-width{
-  width:10%;
+.min-width {
+  width: 10%;
 }
-.title-unbold{
+
+.title-unbold {
   font-weight: normal;
 }
-
-
-/* define a class for the side nav font */
-.side-nav-font {
-
-}
-
-.title {
-
-}
-
-.subtitle {
-
-}
-
-.card-title {
-
-}
-
-.card {
-
-}
-
 
 .content-container {
   margin: auto;
   margin-top: 50px;
   width: 80%;
   min-height: 400px;
-
 }
 
 mat-tab-group {
