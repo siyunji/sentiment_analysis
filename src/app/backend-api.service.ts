@@ -20,14 +20,10 @@ export class BackendApiService {
   }
 
   // TODO: check the file loading func
-  public requests_post(file, request_name, user_email) {
+  public requests_post(formData) {
     const serverurl = this.apiEndPoint;
     return this.httpClient
-      .post(serverurl, {
-        file: file,
-        requestName: request_name,
-        userEmail: user_email,
-      });
+      .post(serverurl, formData);
     }
 
   public send_request(request_name: string, id: string) {
