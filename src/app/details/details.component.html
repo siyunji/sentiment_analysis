@@ -4,9 +4,9 @@
     <mat-toolbar-row>
       <table class="full-width">
         <tr>
-          <th class="long-width">Tweet Content</th>
-          <th class="short-width">Annotation</th>
-          <th class="short-width">Kappa Score</th>
+          <th class="long-width align-center">Tweet Content</th>
+          <th width="25%">Annotation</th>
+          <th class="short-width align-center">Kappa Score</th>
           <mat-menu #appMenu="matMenu" src="../../assets/icon.png">
             <button mat-menu-item (click)="sortScoreDesc()">
               Score⬆
@@ -34,12 +34,13 @@
               <th class="long-width align-left">
                 {{ item.tweet | readLess }}
               </th>
-              <th class="short-width align-center">
+              <th class="min-width align-center">
                 <span appHighlight [label]="item.annotation">
                   {{ item.annotation | titlecase }}
                 </span>
               </th>
-              <th class="short-width align-center">{{ item.score }}</th>
+              <th class="min-width"></th>
+              <th class="min-width align-center">{{ item.score }}</th>
             </tr>
           </table>
         </mat-panel-title>

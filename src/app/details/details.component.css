@@ -1,21 +1,24 @@
 .margin-mid {
-  margin: auto;
+  margin-left: auto;
+  margin-right:auto;
   width: 80%;
 }
+
 .mat-toolbar-row {
-  margin: auto;
+  margin:auto;
   width: 80%;
 }
+
 .mat-toolbar{
   background-color:#fafafa;
 }
-
 
 th {
   font-size: 14px;
   font-weight: normal;
   padding: 6px;
 }
+
 .panel {
   color: black;
 }
