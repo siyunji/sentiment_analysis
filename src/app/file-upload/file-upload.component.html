@@ -9,8 +9,8 @@
 <div class="container">
     <mat-card>
       <form [formGroup]="fileSubmit">
-        <input type="file" id="fileElem" accept=".txt" style="display:none" formControlName="file">
-        <button mat-raised-button class="choose-file-btn" id="fileSelect">
+        <input type="file" id="fileElem" accept=".txt" style="display:none" formControlName="fileName" (change)="onFileChange($event)">
+        <button mat-raised-button class="choose-file-btn" id="fileSelect" type="button">
           <mat-icon inline=true style="float:left;">attach_file</mat-icon>
           Choose File
         </button>
