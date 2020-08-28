@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +37,9 @@ import { MaxvalDirective } from './maxval.directive';
 import { BackendApiService } from './backend-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from './pipes/date.pipe';
+import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
+import { FailDialogComponent } from './fail-dialog/fail-dialog.component';
+import { CompleteDirective } from './complete.directive';
 
 @NgModule({
   declarations: [
@@ -55,7 +59,10 @@ import { DatePipe } from './pipes/date.pipe';
     RequestComponent,
     RequestDetailComponent,
     MaxvalDirective,
-    DatePipe
+    DatePipe,
+    SuccessDialogComponent,
+    FailDialogComponent,
+    CompleteDirective
   ],
   imports: [
     BrowserModule,
@@ -74,9 +81,14 @@ import { DatePipe } from './pipes/date.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [BackendApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    SuccessDialogComponent,
+    FailDialogComponent
+  ]
 })
 export class AppModule { }
