@@ -8,12 +8,15 @@
 
 <div class="container">
     <mat-card>
+      
       <form [formGroup]="fileSubmit">
         <input type="file" id="fileElem" accept=".txt" style="display:none" formControlName="fileName" (change)="onFileChange($event)">
-        <button mat-raised-button class="choose-file-btn" id="fileSelect" type="button">
-          <mat-icon inline=true style="float:left;">attach_file</mat-icon>
-          Choose File
+        <button mat-raised-button class="choose-file-btn" id="fileSelect" type="button" [style]="htmlstring">
+          <mat-icon inline=true style="float:left;" *ngIf="fileStatus == 'Choose File'">attach_file</mat-icon>
+          <mat-progress-bar *ngIf="fileSubmitting == true" mode="indeterminate"></mat-progress-bar>
+           {{fileStatus}}
         </button>
+       
         <mat-form-field appearance="outline" class="input" id="email-input">
           <mat-label>Email Address</mat-label>
           <input matInput formControlName="userEmail">
