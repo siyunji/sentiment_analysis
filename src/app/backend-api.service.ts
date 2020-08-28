@@ -19,7 +19,6 @@ export class BackendApiService {
      return this.httpClient.get(serverurl).pipe(catchError(this.handleError));
   }
 
-  // TODO: check the file loading func
   public requests_post(formData) {
     const serverurl = this.apiEndPoint;
     return this.httpClient
@@ -28,14 +27,24 @@ export class BackendApiService {
 
   public send_request(request_name: string, id: string) {
     const serverurl = this.apiEndPoint + request_name;
-    console.log(serverurl);
     let params = new HttpParams().set('reqid', id);
     return this.httpClient
       .get(serverurl, {params}).pipe(catchError(this.handleError));
   }
 
+  public send_tweets_request(id: string, sortby: string, page_num: string, order: string, page_size: string) {
+    const serverurl = this.apiEndPoint + 'tweets';
+    let params = new HttpParams();
+    params = params.set('reqid', id);
+    params = params.set('sortby', sortby);
+    params = params.set('page', page_num);
+    params = params.set('pagesize', page_size);
+    params = params.set('orderby', order);
+    return this.httpClient
+      .get(serverurl, {params}).pipe(catchError(this.handleError));
+  }
+
   public handleError(error: HttpErrorResponse) {
-    
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.log('Error: ' + error.error.message);
