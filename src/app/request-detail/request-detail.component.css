@@ -12,9 +12,10 @@ mat-tab-group{
     z-index: 1;
 }
 
-h3{
+h3 {
     margin: auto;
     margin-top: 20px;
     width: 80%;
-  
+    font-size:20px;
+    font-weight: 500;
 }
