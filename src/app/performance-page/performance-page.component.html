@@ -1,4 +1,4 @@
-<div class="container">
+<div [hidden]="source.length == 0" class="container">
   <table
     mat-table
     [dataSource]="dataSource"
@@ -13,7 +13,7 @@
     <ng-container matColumnDef="positive">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Positive</th>
       <td mat-cell *matCellDef="let element">
-        <span appMaxval [label] = "element.positive === positiveMAX">
+        <span appMaxval [label]="element.positive === positiveMAX">
           {{ element.positive }}
         </span>
       </td>
@@ -21,49 +21,42 @@
 
     <ng-container matColumnDef="neutral">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Neutral</th>
-      <td
-        mat-cell
-        *matCellDef="let element"
-
-      >
-      <span appMaxval [label] = "element.neutral === neutralMAX ">
-        {{ element.neutral }}
-      </span>
-
+      <td mat-cell *matCellDef="let element">
+        <span appMaxval [label]="element.neutral === neutralMAX">
+          {{ element.neutral }}
+        </span>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="negative">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Negative</th>
-      <td
-        mat-cell
-        class="highlight"
-        *matCellDef="let element"
-
-      >
-      <span appMaxval [label] = "element.negative === negativeMAX ">
-        {{ element.negative }}
-      </span>
-
+      <td mat-cell class="highlight" *matCellDef="let element">
+        <span appMaxval [label]="element.negative === negativeMAX">
+          {{ element.negative }}
+        </span>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="overall">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Overall</th>
-      <td
-        mat-cell
-        class="highlight"
-        *matCellDef="let element"
-
-      >
-      <span appMaxval [label] = "element.overall === overallMAX ">
-        {{ element.overall }}
-      </span>
-
+      <td mat-cell class="highlight" *matCellDef="let element">
+        <span appMaxval [label]="element.overall === overallMAX">
+          {{ element.overall }}
+        </span>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+</div>
+
+<div [hidden]="source.length != 0">
+  <div id = "noData">
+    <span class="material-icons" width="100px">
+      inbox
+      </span>
+    NO DATA
+  </div>
+  
 </div>

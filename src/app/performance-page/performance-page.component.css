@@ -1,11 +1,4 @@
 
-
-/* table {
-  margin: auto;
-  margin-top: 50px;
-  width: 80%;
-  height: 400px;
-} */
 .highlight{
   margin-left: 1.2em;
   margin-right: 1.2em;
@@ -16,6 +9,17 @@
 .mat-header-cell{
   font-size: 14px;
 }
+
 td{
   font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif; font-weight: normal;
+}
+
+#noData{
+  font-size: 40px;
+  text-align: center;
+  margin: 80px 200px;
+}
+
+.container{
+  min-height: 600px;
 }
