@@ -1,40 +1,54 @@
+<div class="container">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    class="mat-elevation-z2 content-container"
+  >
+    <ng-container matColumnDef="word">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rank</th>
+      <td mat-cell *matCellDef="let element">{{ element.rank }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="positive">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Positive</th>
+      <td mat-cell *matCellDef="let element">
+        <span>
+          {{ element.positive }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="neutral">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Neutral</th>
+      <td mat-cell *matCellDef="let element">
+        <span >
+          {{ element.neutral }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="negative">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Negative</th>
+      <td mat-cell class="highlight" *matCellDef="let element">
+        <span>
+          {{ element.negative }}
+        </span>
+      </td>
+    </ng-container>
 
 
-<div class="container content-container">
-  <br>
-      <mat-card class="margin-mid " >
-        <mat-card-title class =" title-unbold">
-          Annontation
-        </mat-card-title>
-        <mat-card-content>
-          <div class="annotation-conatiner">
-            <div style="font-size: 16px;">
-              {{ word_count }}
-            </div>
-            <br>
-            <div class="chart">
-              <div class="negative chart-percent" [style.width.%] = "negative">
-                {{ negative }}%
-              </div>
-              <div class="neutral chart-percent" [style.width.%] = "neutral">
-                {{ neutral }}%
-              </div>
-              <div class="positive chart-percent" [style.width.%] = "positive">
-                {{ positive }}%
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-      
-      <!-- <br>
-      <mat-card class="margin-mid">
-        <mat-card-title class =" title-unbold">
-          Wordcloud
-        </mat-card-title>
-        <mat-card-content>
-          <img src="../../assets/big-data-wordcloud.jpg">
-        </mat-card-content>
-      </mat-card> -->
-
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>
+
+<!-- <div [hidden]="source.length != 0">
+  <div id = "noData">
+    <span class="material-icons" width="100px">
+      inbox
+      </span>
+    NO DATA
+  </div>
+</div> -->
+

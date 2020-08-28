@@ -1,58 +1,25 @@
-.container {
-  min-height: 100%;
+
+.highlight{
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+  padding: 5px;
+  border-radius: 5%;
 }
 
-mat-card-title {
-  font-size: 14px;
-}
-.mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-
-mat-drawer-content {
-  min-height: 600px;
-}
-
-.example-sidenav {
-  padding: 50px;
-  display: flex;
-  min-height: 600px;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-.annotation-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.word {
-  height: 40px;
+.mat-header-cell{
   font-size: 14px;
 }
 
-.chart {
-  height: 40px;
+td{
+  font-family: "Google Sans", Roboto, HelveticaNeue, Arial, sans-serif; font-weight: normal;
+}
+
+#noData{
+  font-size: 40px;
   text-align: center;
-  display: flex;
+  margin: 80px 200px;
 }
 
-.chart-percent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.negative {
-  background-color: #ed8380;
-}
-
-.neutral {
-  background-color: #ffe799;
-}
-
-.positive {
-  background-color: #99dbaa;
+.container{
+  min-height: 600px;
 }
