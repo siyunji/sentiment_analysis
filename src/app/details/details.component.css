@@ -1,16 +1,16 @@
 .margin-mid {
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
   width: 80%;
 }
 
 .mat-toolbar-row {
-  margin:auto;
+  margin: auto;
   width: 80%;
 }
 
-.mat-toolbar{
-  background-color:#fafafa;
+.mat-toolbar {
+  background-color: #fafafa;
 }
 
 th {
@@ -30,3 +30,19 @@ th {
   padding: 5px;
   border-radius: 5%;t
 } */
+
+mat-card {
+  font-size: 40px;
+  text-align: center;
+  margin: 80px 200px;
+}
+
+#noData {
+  font-size: 40px;
+  text-align: center;
+  margin: 80px 200px;
+}
+
+div.ng-star-inserted{
+  min-height: 750px;
+}

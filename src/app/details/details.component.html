@@ -1,5 +1,4 @@
-<div>
-  <!-- right part -->
+<div *ngIf="detail.length > 0">
   <mat-toolbar>
     <mat-toolbar-row>
       <table class="full-width">
@@ -8,11 +7,10 @@
           <th width="25%">Annotation</th>
           <th class="short-width align-center">Kappa Score</th>
           <mat-menu #appMenu="matMenu" src="../../assets/icon.png">
-            <button mat-menu-item (click)="sortScoreDesc()">
-              Score⬆
-            </button>
+            <button mat-menu-item (click)="sortScoreDesc()">Score⬆</button>
             <button mat-menu-item (click)="sortScoreAsc()">Score⬇</button>
             <button mat-menu-item (click)="sortIDAsc()">ID⬇</button>
+            <button mat-menu-item (click)="sortIDDesc()">ID⬆</button>
           </mat-menu>
 
           <button mat-icon-button [matMenuTriggerFor]="appMenu">
@@ -48,7 +46,7 @@
 
       <mat-panel-description class="panel">
         <table class="full-width">
-          <tr *ngIf="item.tweet.length !=0">
+          <tr *ngIf="item.tweet.length != 0">
             <th class="long-width align-left">
               <strong>Tweet Content</strong>
             </th>
@@ -74,13 +72,10 @@
               </span>
             </th>
           </tr>
-          <tr *ngIf="item.sentences.length !=0">
+          <tr *ngIf="item.sentences.length != 0">
             <th class="long-width align-left">
               <strong>Sentence Content</strong>
             </th>
-            <!-- <th class="min-width align-center">Vader</th>
-            <th class="min-width align-center">Textblob</th>
-            <th class="min-width align-center">StanfordNLP</th> -->
           </tr>
 
           <tr *ngFor="let sentence of item.sentences">
@@ -108,6 +103,23 @@
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false"
     >
-    </mat-expansion-panel>
+    </mat-expansion-panel>    
   </mat-accordion>
+
+  <mat-paginator
+      class="margin-mid mat-elevation-z2"
+      [length]="pageLength"
+      [pageSize]="10"
+      (page)="onPageChange($event)" 
+    >
+    </mat-paginator>
+</div>
+
+<div [hidden]="detail.length != 0">
+  <div id="noData">
+    <span class="material-icons" width="100px">
+      inbox
+    </span>
+    NO DATA
+  </div>
 </div>
