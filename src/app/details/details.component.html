@@ -7,10 +7,10 @@
           <th width="25%">Annotation</th>
           <th class="short-width align-center">Kappa Score</th>
           <mat-menu #appMenu="matMenu" src="../../assets/icon.png">
-            <button mat-menu-item (click)="sortScoreDesc()">Score⬆</button>
-            <button mat-menu-item (click)="sortScoreAsc()">Score⬇</button>
-            <button mat-menu-item (click)="sortIDAsc()">ID⬇</button>
-            <button mat-menu-item (click)="sortIDDesc()">ID⬆</button>
+            <button mat-menu-item (click)="sortScoreAsc()">Score⬆</button>
+            <button mat-menu-item (click)="sortScoreDesc()">Score⬇</button>
+            <button mat-menu-item (click)="sortIDDesc()">ID⬇</button>
+            <button mat-menu-item (click)="sortIDAsc()">ID⬆</button>
           </mat-menu>
 
           <button mat-icon-button [matMenuTriggerFor]="appMenu">
