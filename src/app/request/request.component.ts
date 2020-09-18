@@ -88,6 +88,10 @@ export class RequestComponent implements OnInit {
   }
 
   getDetail(row) {
+    if(row["requestStatus"] == "pending"){
+      alert("The result is still in pending.");
+      window.location.reload();
+    }
     this.globalData.requestName = row["requestName"];
     this.globalData.req_id = row["id"];
   }
