@@ -11,6 +11,7 @@ import { BackendApiService } from "../backend-api.service";
 import { GlobalDataService } from "../global-data.service";
 import { MatTableDataSource } from "@angular/material";
 import { MatSort } from "@angular/material/sort";
+import { Router } from '@angular/router';
 
 export interface Request {
   id: number;
@@ -46,7 +47,8 @@ export class RequestComponent implements OnInit {
   ];
   constructor(
     private backendApi: BackendApiService,
-    private globalData: GlobalDataService
+    private globalData: GlobalDataService,
+    private route: Router
   ) {
     this.api = backendApi;
   }
@@ -90,10 +92,12 @@ export class RequestComponent implements OnInit {
   getDetail(row) {
     if(row["requestStatus"] == "pending"){
       alert("The result is still in pending.");
-      window.location.reload();
     }
-    this.globalData.requestName = row["requestName"];
-    this.globalData.req_id = row["id"];
+    else {
+      this.globalData.requestName = row["requestName"];
+      this.globalData.req_id = row["id"];
+      this.route.navigate(['/request-detail']);
+    }
   }
 
   applyFilter(event) {
