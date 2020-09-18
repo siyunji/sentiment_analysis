@@ -79,18 +79,22 @@ export class FileUploadComponent implements OnInit {
   }
 
   sendFile() {
-    this.backendService.requests_post(this.toFormData(this.fileSubmit.value)).subscribe(
+    this.backendService.requests_post(this.toFormData(this.fileSubmit.value))
+    .subscribe(
       (res) => {
         console.log({ res });
         if (res['success']) {
           this.openDialog(SuccessDialogComponent);
+          window.location.reload();
         }
         else {
           this.openDialog(FailDialogComponent);
+          window.location.reload();
         }
       },
       (err) => {
         this.openDialog(FailDialogComponent);
+        window.location.reload();
       }
     );
   }
