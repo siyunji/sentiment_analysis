@@ -15,7 +15,7 @@ export class MaxvalDirective {
   setLabelStyle() {
     switch (this.label) {
       case true:
-        this.el.nativeElement.style.backgroundColor = '#ed8380';
+        this.el.nativeElement.style.backgroundColor = "#ffe799";
         this.el.nativeElement.style.margin = 'auto';
         this.el.nativeElement.style.padding = '5px';
         this.el.nativeElement.style.borderRadius = '5%';
