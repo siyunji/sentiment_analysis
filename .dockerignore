@@ -1,0 +1,12 @@
+# Local build files
+dist
+
+# Local modules and debug log
+node_modules
+npm-debug.log
+
+# Git
+.git
+
+# VS code
+.vscode

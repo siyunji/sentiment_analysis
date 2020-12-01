@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
@@ -27,6 +27,7 @@ import { ReadLessPipe } from './pipes/read-less.pipe';
 import { DataExplorerComponent } from './data-explorer/data-explorer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuComponent } from './menu/menu.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -56,13 +57,14 @@ import { CompleteDirective } from './complete.directive';
     DataExplorerComponent,
     SidebarComponent,
     MenuComponent,
+    NavigationComponent,
     RequestComponent,
     RequestDetailComponent,
     MaxvalDirective,
     DatePipe,
     SuccessDialogComponent,
     FailDialogComponent,
-    CompleteDirective
+    CompleteDirective,
   ],
   imports: [
     BrowserModule,
@@ -82,13 +84,10 @@ import { CompleteDirective } from './complete.directive';
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [BackendApiService],
   bootstrap: [AppComponent],
-  entryComponents: [
-    SuccessDialogComponent,
-    FailDialogComponent
-  ]
+  entryComponents: [SuccessDialogComponent, FailDialogComponent],
 })
-export class AppModule { }
+export class AppModule {}
